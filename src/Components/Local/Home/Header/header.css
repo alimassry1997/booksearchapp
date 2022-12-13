@@ -1,0 +1,38 @@
+.header-content {
+  min-height: 80vh;
+  background: linear-gradient(rgba(0, 92, 169, 0.3), rgba(0, 92, 169, 0.5)),
+    url("../../../../Assets/library-img.jpg") center/cover no-repeat;
+  flex-direction: column;
+}
+
+.header-title {
+  font-size: 4.2rem;
+}
+.header-text {
+  margin-top: -1.8rem;
+  margin-bottom: 2.8rem;
+  opacity: 0.8;
+  max-width: 770px;
+}
+
+.search-form {
+  width: 100%;
+  max-width: 680px;
+}
+
+.search-form-elem {
+  padding: 1.4rem 2.8rem;
+  border-radius: 3.8rem;
+}
+.form-control {
+  background-color: transparent;
+}
+
+.search-form-elem .form-control {
+  font-size: 2rem;
+  padding: 0.6rem;
+}
+
+.search-form-elem .form-control::placeholder {
+  opacity: 0.9;
+}

@@ -1,0 +1,23 @@
+.navbar {
+  padding: 1.8rem 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+}
+
+.navbar-brand {
+  width: 90px;
+}
+.navbar-brand span {
+  margin-left: 1rem;
+}
+.brand-and-toggler {
+  width: 100%;
+}
+.navbar-content {
+  display: flex;
+  width: 100%;
+}
+
+.nav-icon {
+  color: var(--secondary-color);
+}
