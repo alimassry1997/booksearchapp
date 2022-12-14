@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../Components/Global/Navbar/navbar";
 import capitalizeFirstLetter from "../../Utils/capitalizeFirstLetter";
 
@@ -8,6 +8,9 @@ import "./book.css";
 
 const Book = ({}) => {
   const { isbn: ISBN_num } = useParams();
+  const navigate = useNavigate();
+
+  document.title = "Book | ITXI";
   // const ISBN_num = '9781476704210';
   const canvasRef = useRef();
 
@@ -18,20 +21,6 @@ const Book = ({}) => {
   function alertNotFound() {
     alert("could not embed the book!");
   }
-
-  // const fetchDownload = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       "https://www.googleapis.com/books/v1/volumes?q=isbn:" +
-  //         ISBN_num +
-  //         "&filters=free-ebooks&key=AIzaSyA0phPHh3gYfhJr2KnTu7sXBOoSgBMdHuA"
-  //     );
-
-  //     setBookLink(response.data.items[0].accessInfo);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   useEffect(() => {
     const scriptTag = document.createElement("script");
@@ -66,6 +55,7 @@ const Book = ({}) => {
     else {
       if (window.viewer) {
         let viewer = new window.google.books.DefaultViewer(canvasRef.current);
+
         viewer.load("ISBN:" + ISBN_num, alertNotFound);
       } else {
         window.google.books.load();
@@ -79,25 +69,30 @@ const Book = ({}) => {
   }, [loaded]);
 
   return (
-    <div>
+    <div className="book-embed-page">
       <Navbar />
       <div className="whole-book-page">
         <div className="book-infor">
-          <h1>Book Title: {book.title}</h1>
-          {/* <a href={}></a> */}
-          {/* <a
-            href={
-              bookLink.epub.acsTokenLink == undefined
-                ? bookLink.pdf.acsTokenLink
-                : bookLink.epub.acsTokenLink
-            }
-          >
-            <button>Download</button>
-          </a> */}
-          <p>Authors: {book.authors}</p>
-          <p>Publisher: {book.publisher}</p>
-          <p>Page Count: {book.pageCount}</p>
-          <p>Language: {capitalizeFirstLetter(`${book.language}`)}</p>
+          <div class="box box-down cyan">
+            <h2>{book.title}</h2>
+            <br />
+            <p>
+              <span>Authors</span>: {book.authors}
+            </p>
+            <br />
+            <p>
+              <span>Publisher</span>: {book.publisher}
+            </p>
+            <br />
+            <p>
+              <span>Page Count</span>: {book.pageCount}
+            </p>
+            <br />
+            <p>
+              <span>Language</span>: {capitalizeFirstLetter(`${book.language}`)}
+            </p>
+            <br />
+          </div>
         </div>
 
         {loaded ? (

@@ -17,7 +17,7 @@ const Card = ({
 }) => {
   return (
     <div className="book-item flex flex-column flex-sb">
-      <Link to={`/book/${isbn}/${downloadLink}`}>
+      <Link to={`/book/${isbn}`}>
         <div className="book-item-img">
           <img
             src={thumbnail == undefined ? Unavailable : thumbnail}

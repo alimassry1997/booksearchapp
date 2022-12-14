@@ -11,6 +11,8 @@ import "./home.css";
 // https://www.googleapis.com/books/v1/volumes?q=inauthor:Richard&filter=free-ebooks&download=epub&key=AIzaSyA0phPHh3gYfhJr2KnTu7sXBOoSgBMdHuA
 
 const Home = () => {
+
+  document.title = "Home | ITXI";
   const navigate = useNavigate();
   useEffect(() => {
     if (localStorage.getItem("token") === null) {

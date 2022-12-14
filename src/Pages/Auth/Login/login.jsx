@@ -6,6 +6,7 @@ import Logo from "../../../Assets/logo.png";
 import LoginButton from "../../../Components/Local/Auth/auth_signin";
 
 const Login = () => {
+  document.title = "Login | ITXI";
   return (
     <>
       <div className="login-container">
