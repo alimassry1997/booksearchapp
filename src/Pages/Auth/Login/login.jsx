@@ -63,6 +63,5 @@ const Login = () => {
     </>
   );
 };
-// 3763479685-u6j4ijam23dkiagmbuiato31g9992n3g.apps.googleusercontent.com
 
 export default Login;
