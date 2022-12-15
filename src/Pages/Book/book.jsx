@@ -37,7 +37,7 @@ const Book = ({}) => {
 
   useEffect(() => {
     const scriptTag = document.createElement("script");
-    scriptTag.src = "http://www.google.com/books/jsapi.js";
+    scriptTag.src = "https://www.google.com/books/jsapi.js";
     scriptTag.addEventListener("load", () => setLoaded(true));
     scriptTag.id = "google-script";
     document.body.appendChild(scriptTag);
@@ -68,8 +68,7 @@ const Book = ({}) => {
       <div className="book-embed-page">
         <Navbar />
         <div className="whole-book-page">
-          
-<Spinner />
+          <Spinner />
           {loaded ? (
             <div>
               <div ref={canvasRef} id="viewerCanvas"></div>
@@ -81,51 +80,48 @@ const Book = ({}) => {
         <Footer />
       </div>
     );
-  }
-  else{
+  } else {
     return (
       <div className="book-embed-page">
         <Navbar />
         <div className="flex-book">
-        <div className="whole-book-page">
-        {loaded ? (
-            <div>
-              <div ref={canvasRef} id="viewerCanvas"></div>
-            </div>
-          ) : (
-            "Script not loaded"
-          )}
-          <div className="book-infor">
-            <div className="box box-down cyan">
-              <h2>{book.title}</h2>
-              <br />
-              <p>
-                <span>Authors</span>:{" "}
-                {book.authors != null ? book.authors : "Undefined"}
-              </p>
-              <br />
-              <p>
-                <span>Publisher</span>:{" "}
-                {book.publisher != null ? book.publisher : "Undefined"}
-              </p>
-              <br />
-              <p>
-                <span>Page Count</span>:{" "}
-                {book.pageCount != null ? book.pageCount : "Undefined"}
-              </p>
-              <br />
-              <p>
-                <span>Language</span>:{" "}
-                {capitalizeFirstLetter(
-                  `${book.language != null ? book.language : "Undefined"}`
-                )}
-              </p>
-              <br />
+          <div className="whole-book-page">
+            {loaded ? (
+              <div>
+                <div ref={canvasRef} id="viewerCanvas"></div>
+              </div>
+            ) : (
+              "Script not loaded"
+            )}
+            <div className="book-infor">
+              <div className="box box-down cyan">
+                <h2>{book.title}</h2>
+                <br />
+                <p>
+                  <span>Authors</span>:{" "}
+                  {book.authors != null ? book.authors : "Undefined"}
+                </p>
+                <br />
+                <p>
+                  <span>Publisher</span>:{" "}
+                  {book.publisher != null ? book.publisher : "Undefined"}
+                </p>
+                <br />
+                <p>
+                  <span>Page Count</span>:{" "}
+                  {book.pageCount != null ? book.pageCount : "Undefined"}
+                </p>
+                <br />
+                <p>
+                  <span>Language</span>:{" "}
+                  {capitalizeFirstLetter(
+                    `${book.language != null ? book.language : "Undefined"}`
+                  )}
+                </p>
+                <br />
+              </div>
             </div>
           </div>
-  
-          
-        </div>
         </div>
         <Footer />
       </div>
