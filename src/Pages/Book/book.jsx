@@ -37,7 +37,7 @@ const Book = ({}) => {
 
   useEffect(() => {
     const scriptTag = document.createElement("script");
-    scriptTag.src = "https://www.google.com/books/jsapi.js";
+    scriptTag.src = "http://www.google.com/books/jsapi.js";
     scriptTag.addEventListener("load", () => setLoaded(true));
     scriptTag.id = "google-script";
     document.body.appendChild(scriptTag);
