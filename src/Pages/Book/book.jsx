@@ -25,7 +25,7 @@ const Book = ({}) => {
   const bookDetail = async (e) => {
     try {
       const data = await axios.get(
-        `http://www.googleapis.com/books/v1/volumes/${id}`
+        `https://www.googleapis.com/books/v1/volumes/${id}`
       );
       console.log(data.data);
       setBook(data.data.volumeInfo);
@@ -37,7 +37,7 @@ const Book = ({}) => {
 
   useEffect(() => {
     const scriptTag = document.createElement("script");
-    scriptTag.src = "http://www.google.com/books/jsapi.js";
+    scriptTag.src = "https://www.google.com/books/jsapi.js";
     scriptTag.addEventListener("load", () => setLoaded(true));
     scriptTag.id = "google-script";
     document.body.appendChild(scriptTag);

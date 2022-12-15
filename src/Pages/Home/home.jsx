@@ -23,7 +23,7 @@ const Home = () => {
   const searchAuthorButton = async (e) => {
     try {
       const data = await axios.get(
-        "http://www.googleapis.com/books/v1/volumes?q=inauthor:" +
+        "https://www.googleapis.com/books/v1/volumes?q=inauthor:" +
           search +
           "&printType=books&download=epub&orderBy=newest&filters=free-ebooks&key=AIzaSyA0phPHh3gYfhJr2KnTu7sXBOoSgBMdHuA"
       );
