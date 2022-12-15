@@ -55,6 +55,7 @@ const CardList = ({ book, search }) => {
                   authors={authors}
                   isbn={isbn}
                   downloadLink={downloadLink}
+                  id={id}
                 />
               );
             })}

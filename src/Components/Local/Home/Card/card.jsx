@@ -14,10 +14,11 @@ const Card = ({
   authors,
   isbn,
   downloadLink,
+  id,
 }) => {
   return (
     <div className="book-item flex flex-column flex-sb">
-      <Link to={`/book/${isbn}`}>
+      <Link to={`/book/${isbn}/${id}`}>
         <div className="book-item-img">
           <img
             src={thumbnail == undefined ? Unavailable : thumbnail}

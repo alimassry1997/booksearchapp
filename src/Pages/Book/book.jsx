@@ -7,20 +7,29 @@ import capitalizeFirstLetter from "../../Utils/capitalizeFirstLetter";
 import "./book.css";
 
 const Book = ({}) => {
-  const { isbn: ISBN_num } = useParams();
-  const navigate = useNavigate();
+  const { isbn: ISBN_num, id: id } = useParams();
 
   document.title = "Book | ITXI";
-  // const ISBN_num = '9781476704210';
   const canvasRef = useRef();
 
   const [loaded, setLoaded] = useState(false);
 
   const [book, setBook] = useState([]);
-  const [bookLink, setBookLink] = useState([]);
   function alertNotFound() {
     alert("could not embed the book!");
   }
+
+  const bookDetail = async (e) => {
+    try {
+      const data = await axios.get(
+        `https://www.googleapis.com/books/v1/volumes/${id}`
+      );
+      console.log(data.data);
+      setBook(data.data.volumeInfo);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     const scriptTag = document.createElement("script");
@@ -29,25 +38,7 @@ const Book = ({}) => {
     scriptTag.id = "google-script";
     document.body.appendChild(scriptTag);
 
-    axios
-      .get(
-        "https://www.googleapis.com/books/v1/volumes?q=isbn:" +
-          ISBN_num +
-          "&filters=free-ebooks&key=AIzaSyA0phPHh3gYfhJr2KnTu7sXBOoSgBMdHuA"
-      )
-      .then((res) => setBook(res.data.items[0].volumeInfo))
-      .catch((err) => console.log(err));
-
-    axios
-      .get(
-        "https://www.googleapis.com/books/v1/volumes?q=isbn:" +
-          ISBN_num +
-          "&filters=free-ebooks&key=AIzaSyA0phPHh3gYfhJr2KnTu7sXBOoSgBMdHuA"
-      )
-      .then((response) => setBookLink(response.data.items[0].accessInfo))
-      .catch((err) => console.log(err));
-
-    // fetchDownload();
+    bookDetail();
   }, []);
 
   useEffect(() => {
@@ -73,23 +64,29 @@ const Book = ({}) => {
       <Navbar />
       <div className="whole-book-page">
         <div className="book-infor">
-          <div class="box box-down cyan">
+          <div className="box box-down cyan">
             <h2>{book.title}</h2>
             <br />
             <p>
-              <span>Authors</span>: {book.authors}
+              <span>Authors</span>:{" "}
+              {book.authors != null ? book.authors : "Undefined"}
             </p>
             <br />
             <p>
-              <span>Publisher</span>: {book.publisher}
+              <span>Publisher</span>:{" "}
+              {book.publisher != null ? book.publisher : "Undefined"}
             </p>
             <br />
             <p>
-              <span>Page Count</span>: {book.pageCount}
+              <span>Page Count</span>:{" "}
+              {book.pageCount != null ? book.pageCount : "Undefined"}
             </p>
             <br />
             <p>
-              <span>Language</span>: {capitalizeFirstLetter(`${book.language}`)}
+              <span>Language</span>:{" "}
+              {capitalizeFirstLetter(
+                `${book.language != null ? book.language : "Undefined"}`
+              )}
             </p>
             <br />
           </div>
