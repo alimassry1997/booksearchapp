@@ -1,11 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Spinner from "../../Components/Global/Spinner/spinner";
+import Footer from "../../Components/Global/Footer/footer";
 import CardList from "../../Components/Local/Home/Card/card_list";
 import Header from "../../Components/Local/Home/Header/header";
-import Search from "../../Components/Local/Home/Search/search";
-import Book from "../Book/book";
 import "./home.css";
 
 // https://www.googleapis.com/books/v1/volumes?q=inauthor:Richard&filter=free-ebooks&download=epub&key=AIzaSyA0phPHh3gYfhJr2KnTu7sXBOoSgBMdHuA
@@ -66,8 +64,13 @@ const Home = () => {
         </div>
       </div>
       <div>
-        {loading ? <CardList book={bookData} search={search} /> : <div></div>}
+        {loading ? (
+          <CardList book={bookData} search={search} />
+        ) : (
+          <div className="no-books"></div>
+        )}
       </div>
+      <Footer />
     </div>
   );
 };

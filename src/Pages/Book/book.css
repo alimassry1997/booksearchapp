@@ -57,3 +57,10 @@
 .whole-book-page {
   display: flex;
 }
+
+@media screen and (max-width: 1000px) {
+  .whole-book-page {
+    
+    flex-direction: column;
+  }
+}

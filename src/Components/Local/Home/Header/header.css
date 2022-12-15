@@ -23,6 +23,8 @@
 .search-form-elem {
   padding: 1.4rem 2.8rem;
   border-radius: 3.8rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 .form-control {
   background-color: transparent;
