@@ -6,7 +6,6 @@ import CardList from "../../Components/Local/Home/Card/card_list";
 import Header from "../../Components/Local/Home/Header/header";
 import "./home.css";
 
-// https://www.googleapis.com/books/v1/volumes?q=inauthor:Richard&filter=free-ebooks&download=epub&key=AIzaSyA0phPHh3gYfhJr2KnTu7sXBOoSgBMdHuA
 
 const Home = () => {
   document.title = "Home | ITXI";
@@ -24,7 +23,7 @@ const Home = () => {
   const searchAuthorButton = async (e) => {
     try {
       const data = await axios.get(
-        "https://www.googleapis.com/books/v1/volumes?q=inauthor:" +
+        "http://www.googleapis.com/books/v1/volumes?q=inauthor:" +
           search +
           "&printType=books&download=epub&orderBy=newest&filters=free-ebooks&key=AIzaSyA0phPHh3gYfhJr2KnTu7sXBOoSgBMdHuA"
       );
