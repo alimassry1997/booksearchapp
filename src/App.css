@@ -1,13 +1,13 @@
-.btn-login {
-  margin-top: 1rem;
-  display: inline-block;
-  border: 1px solid transparent;
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
-  color: var(--white-color);
-  background-color: var(--secondary-color);
-  font-size: 1.2rem;
+.btn-login div div {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
 }
+
+.btn-login div  div div {
+  display: none;
+}
+
 
 .btn-login:hover {
   color: var(--secondary-color);

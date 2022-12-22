@@ -2,16 +2,13 @@ import React from "react";
 import Placeholder from "../../../../Assets/unavailable-image.jpg";
 import Card from "./card";
 
-const CardList = ({ book, search }) => {
+const CardList = ({ book }) => {
   if (!book || undefined) {
     return (
       <section className="booklist">
         <div className="container">
-          <div className="section-title">
-            <h2>{search} Books</h2>
-          </div>
-          <div className="booklist-content grid">
-            <h1>No available Books</h1>
+          <div className="booklist-content">
+            <h2 className="no-result">No available books for this author</h2>
           </div>
         </div>
       </section>
@@ -20,9 +17,6 @@ const CardList = ({ book, search }) => {
     return (
       <section className="booklist">
         <div className="container">
-          <div className="section-title">
-            <h2>{search} Books</h2>
-          </div>
           <div className="booklist-content grid">
             {book.map((item, index) => {
               let isbn = undefined;

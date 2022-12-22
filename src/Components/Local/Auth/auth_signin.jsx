@@ -6,14 +6,12 @@ import { useNavigate } from "react-router-dom";
 const LoginButton = () => {
   const navigate = useNavigate();
   return (
-    <div className="login-google-btn">
+    <div className="btn-login">
       <GoogleLogin
         onSuccess={(credentialResponse) => {
-          console.log(credentialResponse);
           localStorage.setItem("token", credentialResponse);
-          var decodedToken = jwt_decode(credentialResponse.credential);
+          jwt_decode(credentialResponse.credential);
           navigate("/home");
-          console.log(decodedToken);
         }}
         onError={() => {
           console.log("Login Failed");

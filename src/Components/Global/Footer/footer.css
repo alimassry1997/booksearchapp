@@ -1,11 +1,11 @@
 footer {
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     column-gap: 0.2rem;
     background-color: var(--secondary-color);
-    color: var(--edit-color);
-    margin-left: -16px;
+    color: var(--white-color);
+    margin-top: auto;
   }
   
